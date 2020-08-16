@@ -75,9 +75,9 @@ header .icons .fa-search {
 }
 
 /* info */
-/* >를 써서 upNext말고 바로 다음 나오는 video info만 padding적용 */
-body > .info {
-  padding: var(--padding);
+
+.info {
+  padding: 0 var(--padding);
 }
 
 .info .metadata .hashtags {
@@ -97,16 +97,24 @@ body > .info {
 
 .info .metadata .titleAndButton .title {
   font-size: var(--font-medium);
+
+  margin-right: var(--padding);
+  line-height: 140%;
+}
+.info .metadata .titleAndButton .title.clamp {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  margin-right: var(--padding);
-  line-height: 140%;
 }
 
-.info .metadata .titleAndButton .moreButton {
+.info .metadata .titleAndButton .moreBtn {
   height: 100%;
+  transition: all 300ms ease-in;
+  padding-right: 8px;
+}
+.info .metadata .titleAndButton .moreBtn.clicked {
+  transform: rotate(180deg);
 }
 
 .info .views {
@@ -211,6 +219,7 @@ body > .info {
 }
 .upNext .item .info {
   flex: 1 1 60%;
+  padding: 0;
 }
 
 .upNext .item .moreBtn {
@@ -236,4 +245,22 @@ body > .info {
 .upNext .item .info .views {
   font-size: var(--font-micro);
   color: var(--grey-dark-color);
+}
+
+.infoAndUpNext {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .infoAndUpNext {
+    flex-direction: row;
+    margin: var(--padding) 0;
+  }
+  .info {
+    flex: 1 60%;
+  }
+  .upNext {
+    flex: 1 40%;
+  }
 }
