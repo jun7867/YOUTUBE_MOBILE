@@ -35,6 +35,8 @@ header {
   padding: var(--padding);
   background-color: var(--black-color);
   color: var(--white-color);
+  position: sticky;
+  top: 0;
 }
 
 header .logo {
@@ -50,3 +52,12 @@ header .icons .fa-search {
 }
 
 /* Video Player */
+.player {
+  text-align: center;
+  background-color: var(--black-color);
+}
+.player video {
+  width: 100%;
+  height: 500px;
+  max-width: 1000px;
+}
